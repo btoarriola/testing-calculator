@@ -592,3 +592,99 @@ describe('Ui Division - Component', () => {
   });
 
 });
+
+//------------------------------------ PRUEBA RAIZ ------------------------------------
+describe('Ui sqrt - Component', () => {
+  let component: UiComponent;
+  let fixture: ComponentFixture<UiComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ UiComponent ],
+      imports: [FormsModule],
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(UiComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('Should call sqrt method', () => {
+     // Arrange
+     let result = 0;
+     component.operator1 = 1;
+ 
+     // Act
+     component.sqrt();
+     result = component.result;
+ 
+     // Assert
+     expect(result).toBe(1);
+  });
+
+
+
+  it('Should set operator1 model through ngModel', async() => {
+    // Arrange 
+    await fixture.whenStable();
+    fixture.detectChanges();
+    const inputElement = fixture.debugElement.query(By.css('input[name="operator1"]')).nativeElement;
+
+    // Act 
+    inputElement.value = '3.1416';
+    inputElement.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+
+    // Assert 
+    expect(component.operator1).toEqual(3.1416);
+  });
+ 
+  it('Should set operator1 model through ngModel', async() => {
+    // Arrange 
+    await fixture.whenStable();
+    fixture.detectChanges();
+    const inputElement = fixture.debugElement.query(By.css('input[name="operator1"]')).nativeElement;
+
+    // Act 
+    inputElement.value = '2.71';
+    inputElement.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+
+    // Assert 
+    expect(component.operator1).toEqual(2.71);
+  });
+
+
+  it('should add operator1 and operator2 when i click the sqrt button ', () => {
+    // Arrange 
+    component.operator1 = 5.0;
+    let sqrtButton = fixture.debugElement.query(By.css('.sqrt-button'));
+
+    // Act
+    sqrtButton.triggerEventHandler('click', null);
+
+    // Assert
+    expect(component.result).toBe(2.23606797749979);
+
+   });
+
+  it('Should render exp in result sqrt', () => {
+    // Arrange
+    component.operator1 = 9;
+ 
+    // Act
+    component.sqrt();
+    fixture.detectChanges();
+    
+    let de = fixture.debugElement.query(By.css('.result'));
+    let el : HTMLElement = de.nativeElement;
+
+    // Assert
+    expect(el.innerText).toContain('3');
+     
+  });
+
+});
