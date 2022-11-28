@@ -51,3 +51,9 @@
     font-family: Impact;
 
 }
+.sqr-button {
+    cursor: pointer;
+    color: #0191e4;
+    font-weight: bold;
+    font-family: Impact;
+}
