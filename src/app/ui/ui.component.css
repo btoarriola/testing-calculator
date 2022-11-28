@@ -37,3 +37,10 @@
     cursor: pointer;
     color: red;
 }
+.division-button {
+    cursor: pointer;
+    color: #ffd900;
+    font-weight: bold;
+    font-family: Impact;
+
+}
