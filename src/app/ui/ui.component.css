@@ -33,4 +33,33 @@
     cursor: pointer;
     color: green;
 }
+.multiplication-button {
+    cursor: pointer;
+    color: red;
+}
+.division-button {
+    cursor: pointer;
+    color: #ffd900;
+    font-weight: bold;
+    font-family: Impact;
 
+}
+.exp-button {
+    cursor: pointer;
+    color: purple;
+    font-weight: bold;
+    font-family: Impact;
+
+}
+.sqr-button {
+    cursor: pointer;
+    color: #0191e4;
+    font-weight: bold;
+    font-family: Impact;
+}
+.sqrt-button {
+    cursor: pointer;
+    color: orangered;
+    font-weight: bold;
+    font-family: Impact;
+}
